@@ -24,6 +24,23 @@
             </objects>
             <point key="canvasLocation" x="1093" y="578"/>
         </scene>
+        <!--Newest Navigation Controller-->
+        <scene sceneID="K0e-Mb-dZh">
+            <objects>
+                <navigationController id="tk2-uR-jjl" userLabel="Newest Navigation Controller" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="kmD-Bo-hAi"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2fR-YJ-JMG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="G3n-9f-kQw" kind="relationship" relationship="rootViewController" id="yrY-HU-9TC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5vm-Ur-ueU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1057" y="-181"/>
+        </scene>
         <!--Newest View Controller-->
         <scene sceneID="gdh-Ud-WhA">
             <objects>
@@ -34,7 +51,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="u7i-tk-jqb">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u7i-tk-jqb" id="69m-EJ-Apu">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -48,10 +65,11 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="hmn-9D-oMd" userLabel="Newest"/>
+                    <navigationItem key="navigationItem" id="1Hg-Wk-Ebz"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uup-yv-gOL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1103" y="-75"/>
+            <point key="canvasLocation" x="1754" y="-186"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Yfg-TQ-TtD">
@@ -63,7 +81,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="G3n-9f-kQw" kind="relationship" relationship="viewControllers" id="Z2o-Mq-fof"/>
+                        <segue destination="tk2-uR-jjl" kind="relationship" relationship="viewControllers" id="Nj7-bY-DBB"/>
                         <segue destination="PzT-8z-v03" kind="relationship" relationship="viewControllers" id="DrK-Q2-xpi"/>
                     </connections>
                 </tabBarController>

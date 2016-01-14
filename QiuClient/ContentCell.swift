@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreGraphics
 
 class ContentCell: UITableViewCell {
     
@@ -35,8 +36,17 @@ class ContentCell: UITableViewCell {
         
         // content label
         let content = self.data.stringAttributeForKey("content")
-        let height = content.stringHeightWith(17, width:300)
-        self.contentLabel.setHeight(height)
+        let size: CGSize = UIScreen.mainScreen().bounds.size
+        let width = size.width
+        let height = content.stringHeightWith(17, width: width)
+        var frame = self.contentLabel.frame
+        print(frame)
+        frame.size.width = width
+        frame.size.height = height
+        self.contentLabel.frame = frame
+//        self.contentLabel.setHeight(height)
+//        self.contentLabel.setWidth(size.width)
+        print(frame)
         self.contentLabel.text = content
 
     }

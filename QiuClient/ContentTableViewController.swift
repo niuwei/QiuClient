@@ -16,7 +16,14 @@ class ContentTableViewController: UITableViewController {
     let identifier = "reuseIdentifier"
     var page: Int = 1
     var dataArray = NSMutableArray()
-    
+
+    // 如果控制器需要通过xib加载，则需要添加:
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.title = "最新"
+//        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
