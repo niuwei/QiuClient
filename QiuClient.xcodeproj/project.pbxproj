@@ -433,9 +433,9 @@
 				INFOPLIST_FILE = QiuClient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sina.QiuClient;
+				PRODUCT_BUNDLE_IDENTIFIER = com.niuwei.QiuClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2d6a0771-b3fb-46eb-9938-998a5ae6dc6b";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -449,9 +449,9 @@
 				INFOPLIST_FILE = QiuClient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sina.QiuClient;
+				PRODUCT_BUNDLE_IDENTIFIER = com.niuwei.QiuClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2d6a0771-b3fb-46eb-9938-998a5ae6dc6b";
 				SDKROOT = iphoneos;
 			};
 			name = Release;

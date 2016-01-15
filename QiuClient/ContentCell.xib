@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="otc-Nn-g4j" userLabel="Avatar View">
-                        <rect key="frame" x="15" y="8" width="45" height="45"/>
+                        <rect key="frame" x="8" y="8" width="45" height="45"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzi-Ci-oi2" userLabel="Nick Label">
                         <rect key="frame" x="68" y="14" width="226" height="33"/>
@@ -23,9 +24,6 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zh4-ah-zM1" userLabel="Picture View">
-                        <rect key="frame" x="15" y="125" width="167" height="116"/>
-                    </imageView>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wj3-9o-PGe" userLabel="Bottom View">
                         <rect key="frame" x="15" y="257" width="291" height="32"/>
                         <subviews>
@@ -50,21 +48,27 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBU-bE-wzr" userLabel="Content Label">
-                        <rect key="frame" x="15" y="55" width="212" height="86"/>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBU-bE-wzr" userLabel="Content Label">
+                        <rect key="frame" x="8" y="55" width="304" height="33"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zh4-ah-zM1" userLabel="Picture View">
+                        <rect key="frame" x="8" y="96" width="167" height="116"/>
+                    </imageView>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="BBU-bE-wzr" firstAttribute="leading" secondItem="p5k-Hv-7FI" secondAttribute="leadingMargin" id="2vy-Zk-XvW"/>
+                    <constraint firstItem="BBU-bE-wzr" firstAttribute="trailing" secondItem="p5k-Hv-7FI" secondAttribute="trailingMargin" id="AMn-1q-87U"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="avatarView" destination="otc-Nn-g4j" id="fBW-FX-U3f"/>
                 <outlet property="contentLabel" destination="BBU-bE-wzr" id="Bxh-fs-ol7"/>
                 <outlet property="nickLabel" destination="Fzi-Ci-oi2" id="VTh-Oz-aKp"/>
             </connections>
-            <point key="canvasLocation" x="198" y="368"/>
+            <point key="canvasLocation" x="-8" y="338"/>
         </tableViewCell>
     </objects>
 </document>

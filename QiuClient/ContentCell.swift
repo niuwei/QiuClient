@@ -39,14 +39,7 @@ class ContentCell: UITableViewCell {
         let size: CGSize = UIScreen.mainScreen().bounds.size
         let width = size.width
         let height = content.stringHeightWith(17, width: width)
-        var frame = self.contentLabel.frame
-        print(frame)
-        frame.size.width = width
-        frame.size.height = height
-        self.contentLabel.frame = frame
-//        self.contentLabel.setHeight(height)
-//        self.contentLabel.setWidth(size.width)
-        print(frame)
+        self.contentLabel.bounds.size.height = height
         self.contentLabel.text = content
 
     }
