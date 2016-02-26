@@ -142,14 +142,14 @@
 		075A539A1C4398FF004BCBE1 /* QiuClient */ = {
 			isa = PBXGroup;
 			children = (
-				075A539B1C4398FF004BCBE1 /* AppDelegate.swift */,
+				072116A71C45FC6B00662E2A /* ContentCell.xib */,
 				075A539F1C4398FF004BCBE1 /* Main.storyboard */,
-				075A53A21C4398FF004BCBE1 /* Assets.xcassets */,
 				075A53A41C4398FF004BCBE1 /* LaunchScreen.storyboard */,
+				075A539B1C4398FF004BCBE1 /* AppDelegate.swift */,
+				075A53A21C4398FF004BCBE1 /* Assets.xcassets */,
 				075A53A71C4398FF004BCBE1 /* Info.plist */,
 				075A53AE1C43A74D004BCBE1 /* ContentTableViewController.swift */,
 				075A53B01C43AF7A004BCBE1 /* QiuHttpRequest.swift */,
-				072116A71C45FC6B00662E2A /* ContentCell.xib */,
 				072116B11C45FFAD00662E2A /* ContentCell.swift */,
 				072116B31C463B6300662E2A /* UtilityExt.swift */,
 				072116B51C4656A200662E2A /* FileUtility.swift */,
