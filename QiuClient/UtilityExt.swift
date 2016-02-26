@@ -162,31 +162,30 @@ extension UIImageView
                 }
                 else
                 {
-                    dispatch_async(dispatch_get_main_queue(),
+                    dispatch_async(dispatch_get_main_queue()) {
+                        
+                        let image = UIImage(data: data!)
+                        if (image == nil)
                         {
-                            
-                            let image = UIImage(data: data!)
-                            if (image == nil)
+//                            let jsonData = (try? NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)) as! NSDictionary
+//                            
+//                            if let _:String? = jsonData["error"] as? String {
+//                                //println("\(err)")
+//                                print("url fail=\(urlString)")
+//                            }
+                            //println("img is nil,path=\(cachePath)")
+                            self.image = placeHolder
+                        }
+                        else
+                        {
+                            self.image = image
+                            let bIsSuccess = FileUtility.imageCacheToPath(cachePath,image:data!)
+                            if !bIsSuccess
                             {
-                                let jsonData = (try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)) as! NSDictionary
-                                
-                                if let _:String? = jsonData["error"] as? String {
-                                    //println("\(err)")
-                                    print("url fail=\(urlString)");
-                                }
-                                //println("img is nil,path=\(cachePath)")
-                                self.image = placeHolder
+                                print("*******cache fail,path=\(cachePath)")
                             }
-                            else
-                            {
-                                self.image = image
-                                let bIsSuccess = FileUtility.imageCacheToPath(cachePath,image:data!)
-                                if !bIsSuccess
-                                {
-                                    print("*******cache fail,path=\(cachePath)")
-                                }
-                            }
-                    })
+                        }
+                    }
                 }
             })
             

@@ -27,7 +27,10 @@ class ContentTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        loadData()
+//        loadData()
+        
+        // 集成刷新控件
+        setupRefresh()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -96,49 +99,49 @@ class ContentTableViewController: UITableViewController {
         return 400
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    // 集成下拉刷新
+    func setupRefresh() {
+        //1.添加刷新控件
+        let control: UIRefreshControl = UIRefreshControl()
+        control.addTarget(self, action: "refreshStateChange:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(control)
+    
+        //2.马上进入刷新状态，并不会触发UIControlEventValueChanged事件
+        control.beginRefreshing()
+    
+        // 3.加载数据
+        refreshStateChange(control)
     }
-    */
+    
+    // UIRefreshControl进入刷新状态：加载最新的数据
+    func refreshStateChange(control: UIRefreshControl) {
+        
+        loadData()
+        tableView.reloadData()
+        control.endRefreshing()
+    // 3.发送请求
+/*    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    
+    [mgr GET:@"https://api.weibo.com/2/statuses/public_timeline.json" parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject){
+    
+    //1.获取数据，处理数据，传递数据给tableView,如：
+    
+    // 将最新的微博数据，添加到总数组的最前面
+    //        NSRange range = NSMakeRange(0, newStatuses.count);
+    //        NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
+    //        [self.statuses insertObjects:newStatuses atIndexes:set];
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    //2.刷新表格
+    [self.tableView reloadData];
+    
+    // 3. 结束刷新
+    [control endRefreshing];
+    
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    
+    // 结束刷新刷新 ，为了避免网络加载失败，一直显示刷新状态的错误
+    [control endRefreshing];
+    }]; */
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
