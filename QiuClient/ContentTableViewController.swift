@@ -14,8 +14,11 @@ import Alamofire
 class ContentTableViewController: UITableViewController {
 
     let identifier = "reuseIdentifier"
+    let numPerPage = 4
     var page: Int = 1
     var dataArray = NSMutableArray()
+    let refreshCtrl: UIRefreshControl = UIRefreshControl()
+    var isRunning = false
 
     // 如果控制器需要通过xib加载，则需要添加:
     required init?(coder aDecoder: NSCoder) {
@@ -62,10 +65,16 @@ class ContentTableViewController: UITableViewController {
     
     func loadData() {
         
-        Alamofire.request(QiuHttpRequest.Router.Newest(20, page).URLRequest).responseJSON() {
+        if isRunning {
+            return;
+        }
+        
+        isRunning = true;
+        Alamofire.request(QiuHttpRequest.Router.Newest(numPerPage, page).URLRequest).responseJSON() {
             response in
             let error = response.result.error
             let data = response.result.value
+            self.isRunning = false
             
             if error == nil {
                 
@@ -74,6 +83,7 @@ class ContentTableViewController: UITableViewController {
                     self.dataArray.addObject(item);
                 }
                 self.tableView.reloadData()
+                self.page += 1
                 
             } else {
                 let alert = UIAlertView()
@@ -92,6 +102,12 @@ class ContentTableViewController: UITableViewController {
         let index = indexPath.row
         let data = self.dataArray[index] as! NSDictionary
         cell!.data = data
+        
+        if indexPath.row == self.dataArray.count - 1 {
+            
+            loadData()
+        }
+        
         return cell!
     }
 
@@ -102,15 +118,14 @@ class ContentTableViewController: UITableViewController {
     // 集成下拉刷新
     func setupRefresh() {
         //1.添加刷新控件
-        let control: UIRefreshControl = UIRefreshControl()
-        control.addTarget(self, action: "refreshStateChange:", forControlEvents: UIControlEvents.ValueChanged)
-        self.tableView.addSubview(control)
+        refreshCtrl.addTarget(self, action: "refreshStateChange:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshCtrl)
     
         //2.马上进入刷新状态，并不会触发UIControlEventValueChanged事件
-        control.beginRefreshing()
+        refreshCtrl.beginRefreshing()
     
         // 3.加载数据
-        refreshStateChange(control)
+        refreshStateChange(refreshCtrl)
     }
     
     // UIRefreshControl进入刷新状态：加载最新的数据
